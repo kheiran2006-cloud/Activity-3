@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head>
+  <title>Menu | Sunny Side Bounty</title><meta charset="UTF-8">
+  <link rel="icon" type="image/web-logo.jpg" href="images/web-logo.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;800;900&family=Rye&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="site-header" id="site-header">
+  <a class="logo" href="index.html">Sunny Side Bounty</a>
+  <nav class="main-nav" id="main-nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="menu.html" class="active">Menu</a>
+  </nav>
+  <div class="header-tools">
+    <button class="btn small" id="theme-toggle" type="button">Night</button>
+    <button class="btn small" id="nav-toggle" type="button" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+<main>
+  <header class="page-banner" id="menu-banner">
+    <h1>The Bounty Board</h1>
+    <p>Pick your dishes, add them to the crew order and claim your feast.</p>
+  </header>
+  <section class="section" id="menu-section">
+    <div class="controls">
+      <div class="tabs" role="group" aria-label="Categories">
+        <button class="btn tab active" data-cat="all" type="button">All</button>
+        <button class="btn tab" data-cat="main" type="button">From The Grill</button>
+        <button class="btn tab" data-cat="dessert" type="button">Sweet Treasures</button>
+        <button class="btn tab" data-cat="drink" type="button">Island Drinks</button>
+      </div>
+      <div class="filters">
+        <input type="search" id="search-input" placeholder="Search a dish..." aria-label="Search dishes">
+        <select id="sort-select" aria-label="Sort dishes">
+          <option value="default">Menu order</option><option value="low">Price: low to high</option>
+          <option value="high">Price: high to low</option><option value="name">Name A-Z</option>
+        </select>
+        <button class="btn red" id="open-order" type="button">Crew order (<span id="order-count">0</span>)</button>
+      </div>
+    </div>
+    <div class="menu-grid" id="menu-grid"></div>
+    <p id="empty-message">No dishes match that search. Try another name.</p>
+  </section>
+</main>
+<aside class="order-drawer" id="order-drawer" aria-label="Crew order">
+  <h2>Crew order</h2>
+  <ul id="order-list"></ul>
+  <p class="order-total" id="order-total">Total: ₱0</p>
+  <button class="btn red" id="clear-order" type="button">Clear order</button>
+  <button class="btn" id="close-order" type="button" style="margin-top:.7rem">Close</button>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+<footer class="site-footer" id="site-footer">
+  <strong>Sunny Side Bounty</strong>
+  <p>Bring Your Crew, Claim Your Feast!</p>
+  <p>Contact us at Email: <a href="mailto:info@sunnysidebounty.com">info@sunnysidebounty.com</a></p>
+  <p>© 2026 Sunny Side Bounty. Fan-made project for COMP016 Lab 3.</p>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+/* Sunny Side Bounty - style.css */
+:root {
+  --ocean: #0b2a4a;
+  --ocean-deep: #071b31;
+  --sun: #ffc21a;
+  --hat-red: #d7263d;
+  --parchment: #ecd9a8;
+  --ink: #3a2412;
+  --foam: #f6f9fc;
+  --page: #fff6dc;
+  --text: #2b1d10;
+  --card-shadow: 6px 6px 0 var(--ink);
+  --font-display: "Rye", "Georgia", serif;
+  --font-body: "Nunito", "Segoe UI", sans-serif;
+}
+body.night {
+  --page: #0b1a2c;
+  --text: #f3ead2;
+  --foam: #797a7a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--page); color: var(--text); line-height: 1.6; transition: background .3s, color .3s; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--hat-red); outline-offset: 3px; }
+
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem 5vw; background: var(--ocean); color: var(--foam); border-bottom: 5px solid var(--sun); }
+.logo { font-family: var(--font-display); font-size: 1.4rem; color: var(--sun); text-decoration: none; }
+.main-nav { display: flex; gap: 1.5rem; align-items: center; }
+.main-nav a { text-decoration: none; font-weight: 800; padding: .3rem .1rem; border-bottom: 3px solid transparent; }
+.main-nav a:hover, .main-nav a.active { border-color: var(--sun); }
+.header-tools { display: flex; gap: .6rem; }
+.btn { font: inherit; font-weight: 800; cursor: pointer; border: 3px solid var(--ink); background: var(--sun); color: var(--ink); padding: .55rem 1.1rem; border-radius: 999px; box-shadow: 3px 3px 0 var(--ink); text-decoration: none; display: inline-block; transition: transform .15s, box-shadow .15s; }
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.btn.red { background: var(--hat-red); color: #fff; }
+.btn.small { padding: .3rem .8rem; font-size: .9rem; }
+#nav-toggle { display: none; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; display: grid; place-items: center; text-align: center; min-height: 82vh; padding: 4rem 6vw 7rem; color: var(--foam);
+  background: linear-gradient(rgba(7,27,49,.55), rgba(7,27,49,.8)), url("../images/king-of-the-pirates-ribs.png") center/cover, linear-gradient(var(--ocean) 55%, #1b6ca8); }
+.hero::before { content: ""; position: absolute; width: 22rem; height: 22rem; border-radius: 50%; background: var(--sun); top: -8rem; right: -6rem; box-shadow: 0 0 0 2rem rgba(255,194,26,.25), 0 0 0 4.5rem rgba(255,194,26,.12); }
+.hero-inner { position: relative; max-width: 46rem; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 8vw, 5.5rem); line-height: 1.05; color: var(--sun); text-shadow: 4px 4px 0 var(--hat-red); }
+.hero .tagline { font-size: clamp(1.1rem, 3vw, 1.6rem); margin: 1.2rem 0 2rem; font-weight: 800; }
+.hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.waves { position: absolute; left: 0; right: 0; bottom: -1px; height: 70px; background: radial-gradient(circle at 25px 0, transparent 24px, var(--page) 25px) 0 0/50px 70px repeat-x; }
+
+/* Sections */
+.section { padding: 4.5rem 6vw; max-width: 1200px; margin: 0 auto; }
+.section h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 5vw, 2.8rem); color: var(--hat-red); margin-bottom: .5rem; }
+.section > p.lead { max-width: 60ch; margin-bottom: 2rem; }
+.split { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; align-items: center; }
+.feature-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+
+/* Calculator */
+.calculator { background: var(--ocean); color: var(--foam); border: 4px solid var(--sun); border-radius: 1rem; padding: 2rem; box-shadow: var(--card-shadow); }
+.calculator select { font: inherit; padding: .6rem 1rem; border-radius: .5rem; border: 3px solid var(--ink); margin: 1rem 0; width: 100%; }
+#feast-result { min-height: 4rem; font-weight: 800; padding: 1rem; border-radius: .5rem; background: rgba(255,255,255,.1); transition: background .3s; }
+
+/* Wanted-poster cards */
+.poster { background: var(--parchment); color: var(--ink); border: 4px solid var(--ink); box-shadow: var(--card-shadow); display: flex; flex-direction: column; padding: .9rem; transition: transform .2s, box-shadow .2s, background .2s; position: relative; }
+.poster.hot { transform: rotate(-1.5deg) scale(1.03); background: #f6e6b8; box-shadow: 9px 9px 0 var(--hat-red); }
+.poster-title { text-align: center; font-family: var(--font-display); font-size: 1.5rem; letter-spacing: .1em; border-bottom: 3px double var(--ink); margin-bottom: .6rem; }
+.poster figure { aspect-ratio: 4/3; border: 3px solid var(--ink); background: #c9b27a; overflow: hidden; display: grid; place-items: center; }
+.poster figure img { width: 100%; height: 100%; object-fit: cover; }
+
+.poster h3 { font-size: 1.15rem; line-height: 1.25; margin: .7rem 0 .3rem; text-align: center; }
+.poster p { font-size: .95rem; flex: 1; text-align: center; }
+.poster-foot { display: flex; justify-content: space-between; align-items: center; margin-top: .8rem; gap: .5rem; }
+.bounty { font-weight: 900; font-size: 1.15rem; color: var(--hat-red); }
+.stamp { position: absolute; top: 3.2rem; right: -.6rem; background: var(--hat-red); color: #fff; font-weight: 900; font-size: .8rem; padding: .15rem .6rem; transform: rotate(8deg); border: 2px solid var(--ink); }
+
+/* Menu page */
+.page-banner { background: var(--ocean); color: var(--sun); text-align: center; padding: 3.5rem 6vw 2.5rem; }
+.page-banner h1 { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 3.6rem); }
+.page-banner p { color: var(--foam); }
+.controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
+.tabs { display: flex; gap: .6rem; flex-wrap: wrap; }
+.tab.active { background: var(--hat-red); color: #fff; }
+.filters { display: flex; gap: .6rem; flex-wrap: wrap; }
+.filters input, .filters select { font: inherit; padding: .55rem 1rem; border: 3px solid var(--ink); border-radius: 999px; background: #fff; color: var(--ink); }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem; }
+#empty-message { display: none; text-align: center; font-weight: 800; padding: 3rem 0; }
+
+/* Order drawer */
+.order-drawer { position: fixed; top: 0; right: 0; height: 100%; width: min(380px, 100%); background: var(--parchment); color: var(--ink); border-left: 5px solid var(--ink); z-index: 30; padding: 1.5rem; display: flex; flex-direction: column; transform: translateX(105%); transition: transform .35s ease; }
+.order-drawer.open { transform: translateX(0); }
+.order-drawer h2 { font-family: var(--font-display); color: var(--hat-red); }
+#order-list { list-style: none; flex: 1; overflow-y: auto; margin: 1rem 0; }
+#order-list li { display: flex; justify-content: space-between; gap: .5rem; padding: .5rem 0; border-bottom: 2px dashed var(--ink); }
+.order-total { font-weight: 900; font-size: 1.3rem; margin-bottom: 1rem; }
+.toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translate(-50%, 200%); background: var(--ink); color: var(--sun); padding: .7rem 1.4rem; border-radius: 999px; font-weight: 800; z-index: 40; transition: transform .3s; }
+.toast.show { transform: translate(-50%, 0); }
+
+/* Footer */
+.site-footer { background: var(--ocean-deep); color: var(--foam); text-align: center; padding: 2.5rem 6vw; border-top: 5px solid var(--sun); }
+.site-footer strong { color: var(--sun); font-family: var(--font-display); font-size: 1.3rem; }
+
+/* Responsive */
+@media (max-width: 760px) {
+  #nav-toggle { display: inline-block; }
+  .main-nav { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: var(--ocean); padding: 1rem 5vw; gap: .8rem; display: none; border-bottom: 5px solid var(--sun); }
+  .main-nav.open { display: flex; }
+  .site-header { flex-wrap: wrap; }
+  .controls { flex-direction: column; align-items: stretch; }
+  .hero::before { width: 13rem; height: 13rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
